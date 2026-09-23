@@ -27,7 +27,7 @@ export const Portfolio = () => {
             Our Portfolio
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-4">
-            Explore live websites, brand identities, and high-ROI advertising campaigns delivered by Meta Seeds.
+            Explore live web platforms, IoT hardware systems, eCommerce stores, and Google #1 ranking case studies delivered by Meta Seeds.
           </p>
         </div>
 

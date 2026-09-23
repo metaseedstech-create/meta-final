@@ -17,13 +17,12 @@ export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const availableServices = [
-    'Custom Website Development',
-    'Responsive UI/UX Design',
-    'E-Commerce Online Store',
+    'Web Development',
     'Search Engine Optimization (SEO)',
-    'Google Ads / PPC',
-    'Social Media Marketing (Meta)',
-    'Branding & Identity',
+    'IoT Services',
+    'eCommerce Development',
+    'Research Projects',
+    'Services Related Enquiry',
   ];
 
   const toggleService = (srv) => {

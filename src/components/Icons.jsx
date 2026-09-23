@@ -575,12 +575,16 @@ export const Palette = createIcon(
   </>
 );
 
+export const Facebook = createIcon(
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+);
+
 export default {
   Sun, Moon, Menu, X, Sparkles, ArrowRight, ArrowLeft, ArrowUp, ArrowUpRight, ShieldCheck, ShieldAlert,
   PhoneCall, Phone, Mail, MapPin, Clock, Send, CheckCircle2, Check, Zap, Activity, Play,
   BarChart3, Bot, Search, Share2, Target, Code2, Server, RotateCcw, Lock, HelpCircle,
   Star, Quote, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, MessageSquarePlus, MessageSquare,
-  MessageCircle, Layers, HeartHandshake, Smile, DollarSign, Building, Linkedin, Twitter,
+  MessageCircle, Layers, HeartHandshake, Smile, DollarSign, Building, Linkedin, Twitter, Facebook,
   Github, Instagram, TrendingUp, Heart,
   Edit, Trash2, Plus, Save, Upload, Download, RefreshCw, Settings, Sliders, Globe, Layout,
   Eye, LogOut, ExternalLink, Image, FileText, Folder, User, Users, Shield, Key, Copy, Filter,

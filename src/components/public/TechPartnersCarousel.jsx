@@ -1,135 +1,103 @@
 import React from 'react';
-import { Sparkles, Server, Code2, Globe, Shield, Zap } from '../Icons';
 
 export const TechPartnersCarousel = () => {
-  const partners = [
+  const logos = [
     {
-      name: "Meta Seeds",
-      role: "Official Digital Agency",
-      icon: "🌱",
-      badge: "Core Engine",
-      color: "from-blue-600 to-sky-500",
-      textColor: "text-blue-700",
-      bgBadge: "bg-blue-100 text-blue-800"
+      name: "LOGAN SEO",
+      subtitle: "Growth First",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-7 h-7 text-emerald-500" fill="currentColor">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+          <path d="M8 14l4-4 4 4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+        </svg>
+      )
     },
     {
-      name: "Hostinger",
-      role: "Cloud Web Hosting",
-      icon: "⚡",
-      badge: "Hosting Partner",
-      color: "from-indigo-600 to-purple-600",
-      textColor: "text-indigo-700",
-      bgBadge: "bg-indigo-100 text-indigo-800"
+      name: "Brit Run",
+      subtitle: "Solution Business",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-7 h-7 text-red-500" fill="currentColor">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      )
     },
     {
-      name: "GitHub",
-      role: "CI/CD & Code Deployment",
-      icon: "🐙",
-      badge: "DevOps & Cloud",
-      color: "from-slate-800 to-slate-950",
-      textColor: "text-slate-800",
-      bgBadge: "bg-slate-100 text-slate-800"
+      name: "SOLE GRAN",
+      subtitle: "Solution Business",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-7 h-7 text-sky-500" fill="currentColor">
+          <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/>
+        </svg>
+      )
     },
     {
-      name: "MilesWeb",
-      role: "Managed Indian Servers",
-      icon: "🚀",
-      badge: "Fast Hosting",
-      color: "from-sky-600 to-blue-600",
-      textColor: "text-sky-700",
-      bgBadge: "bg-sky-100 text-sky-800"
-    },
-    {
-      name: "Cloudflare",
-      role: "Global Edge CDN & SSL",
-      icon: "🛡️",
-      badge: "Enterprise Security",
-      color: "from-amber-500 to-orange-500",
-      textColor: "text-amber-700",
-      bgBadge: "bg-amber-100 text-amber-800"
+      name: "RIGHT WAY",
+      subtitle: "Business Resources",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-7 h-7 text-indigo-600" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      )
     },
     {
       name: "AWS Cloud",
-      role: "Amazon Web Services",
-      icon: "☁️",
-      badge: "99.99% Uptime",
-      color: "from-orange-500 to-amber-600",
-      textColor: "text-orange-700",
-      bgBadge: "bg-orange-100 text-orange-800"
+      subtitle: "Infrastructure",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-7 h-7 text-amber-500" fill="currentColor">
+          <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+        </svg>
+      )
     },
     {
-      name: "Meta Ads",
-      role: "Instagram & Facebook Growth",
-      icon: "📱",
-      badge: "Meta Certified",
-      color: "from-blue-600 to-indigo-600",
-      textColor: "text-blue-700",
-      bgBadge: "bg-blue-100 text-blue-800"
-    },
-    {
-      name: "Google Cloud",
-      role: "SEO & Google Ads Network",
-      icon: "🔍",
-      badge: "Google Certified",
-      color: "from-emerald-500 to-teal-600",
-      textColor: "text-emerald-700",
-      bgBadge: "bg-emerald-100 text-emerald-800"
+      name: "Cloudflare",
+      subtitle: "Security & CDN",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-7 h-7 text-orange-500" fill="currentColor">
+          <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+        </svg>
+      )
     }
   ];
 
-  // Duplicate list to achieve continuous seamless loop
-  const marqueeItems = [...partners, ...partners];
+  // Tripled array for continuous seamless infinite scrolling marquee
+  const marqueeItems = [...logos, ...logos, ...logos];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-[#e8f2fe] via-[#f0f7ff] to-[#e4effd] border-t border-blue-200/80 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Cloud & Hosting Ecosystem</span>
-        </div>
-        <h3 className="text-xl sm:text-2xl font-black text-slate-900">
-          Powered by Global Cloud, Hosting & Development Partners
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-2xl mx-auto">
-          Every website and marketing project by Meta Seeds is hosted on high-availability cloud infrastructure with enterprise security and instant CDN delivery.
-        </p>
-      </div>
+    <section className="py-10 bg-[#f8fafc] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Animated Infinite Auto Carousel Strip */}
+        <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/50 p-6 overflow-hidden relative group">
+          {/* Edge Blur Gradients */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-white via-white/80 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-white via-white/80 to-transparent" />
 
-      {/* Infinite Scrolling Track */}
-      <div className="relative w-full overflow-hidden">
-        {/* Soft edge gradient fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#e8f2fe] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#e4effd] to-transparent z-10 pointer-events-none" />
-
-        <div className="flex w-max items-center gap-6 animate-marquee hover:[animation-play-state:paused] py-4">
-          {marqueeItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/90 border border-blue-100 shadow-md shadow-blue-500/5 hover:border-blue-300 hover:shadow-xl transition-all duration-300 shrink-0 group hover:-translate-y-1"
-            >
-              {/* Icon / Logo Emoji */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-50 to-sky-100 border border-blue-200 flex items-center justify-center text-2xl shadow-inner group-hover:scale-110 transition-transform shrink-0">
-                {item.icon}
-              </div>
-
-              {/* Partner Info */}
-              <div className="text-left">
-                <div className="flex items-center gap-2">
-                  <h4 className="text-sm font-black text-slate-900 group-hover:text-blue-600 transition-colors">
-                    {item.name}
-                  </h4>
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${item.bgBadge}`}>
-                    {item.badge}
-                  </span>
+          {/* Infinite Marquee Track */}
+          <div
+            className="flex items-center gap-8 animate-marquee group-hover:[animation-play-state:paused]"
+            style={{ width: 'max-content' }}
+          >
+            {marqueeItems.map((logo, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-50 border border-slate-100/80 hover:bg-blue-50/80 hover:border-blue-200 transition-all cursor-pointer group/item shrink-0 shadow-xs"
+              >
+                <div className="group-hover/item:scale-110 transition-transform duration-300">
+                  {logo.icon}
                 </div>
-                <p className="text-xs text-slate-500 mt-0.5 font-medium">
-                  {item.role}
-                </p>
+                <div>
+                  <h4 className="text-xs font-black text-slate-900 group-hover/item:text-blue-700 transition-colors">
+                    {logo.name}
+                  </h4>
+                  <p className="text-[10px] font-semibold text-slate-400">
+                    {logo.subtitle}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
+

@@ -1,12 +1,23 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { defaultContent } from '../data/defaultContent';
 
-const STORAGE_KEY = 'metaseeds_cms_data_v2';
+const STORAGE_KEY = 'metaseeds_cms_data_v10';
 const AUTH_KEY = 'metaseeds_admin_auth_v1';
 
 const ContentContext = createContext(null);
 
 export const ContentProvider = ({ children }) => {
+  // Purge any outdated localStorage caches
+  useEffect(() => {
+    try {
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith('metaseeds_cms_data_') && key !== STORAGE_KEY) {
+          localStorage.removeItem(key);
+        }
+      });
+    } catch (e) {}
+  }, []);
+
   // Load content from localStorage or fallback to defaultContent
   const [content, setContent] = useState(() => {
     try {

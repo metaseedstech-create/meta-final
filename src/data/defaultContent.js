@@ -46,98 +46,80 @@ export const defaultContent = {
     { id: "s4", count: "10", suffix: "+", title: "Industries Served", desc: "Manufacturing, Retail to EdTech" }
   ],
 
-  portfolioCategories: ["All", "Web Design", "Brand Logos", "Posters", "SEO", "Meta Ads"],
+  portfolioCategories: ["All", "Web Development", "SEO", "IoT Services", "eCommerce", "Research Projects"],
 
   portfolio: [
     {
       id: "p1",
-      title: "Rymexgroup – Pest Control Services",
-      category: "Web Design",
-      clientType: "Website Development",
+      title: "Rymexgroup Enterprise Web Platform",
+      category: "Web Development",
+      clientType: "Full-Stack Web Development",
       location: "Dubai, UAE",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
       link: "https://rymexgroup.com/"
     },
     {
       id: "p2",
-      title: "Innov8 EduTech Solutions – AIoT & App Experts",
-      category: "Web Design",
-      clientType: "Web & Software Solutions",
+      title: "Innov8 EduTech AIoT & Cloud Dashboard",
+      category: "IoT Services",
+      clientType: "IoT Hardware & Cloud Telemetry",
       location: "India",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
       link: "https://www.innov8edutech.com/"
     },
     {
       id: "p3",
-      title: "Sai Chapathi Industries – Food Manufacturer",
-      category: "Web Design",
-      clientType: "Business Website",
+      title: "Sai Chapathi Corporate Web Architecture",
+      category: "Web Development",
+      clientType: "Responsive Web Development",
       location: "Coimbatore, India",
       image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop",
       link: "https://www.saichapathiindustries.com/"
     },
     {
       id: "p4",
-      title: "SIA Learning Hub – Online NRI Coaching",
-      category: "Web Design",
-      clientType: "Education Platform",
-      location: "Global / Gulf",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop",
-      link: "https://www.sialearninghub.com/"
-    },
-    {
-      id: "p5",
-      title: "Money Onliners – Digital Wealth Platform",
+      title: "Money Onliners Organic Google #1 Ranking",
       category: "SEO",
-      clientType: "Organic Growth & SEO",
+      clientType: "Technical & On-Page SEO",
       location: "India",
       image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop",
       link: "https://moneyonliners.com/"
     },
     {
-      id: "p6",
-      title: "Square Software Solutions Enterprise Portal",
-      category: "Web Design",
-      clientType: "Enterprise Web App",
-      location: "India",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
-      link: "https://squaresoftwaresolutions.com/"
-    },
-    {
-      id: "p7",
-      title: "Akash Packaging – Industrial Ecommerce",
-      category: "Meta Ads",
-      clientType: "Ecommerce & Lead Ads",
+      id: "p5",
+      title: "Akash Packaging B2B eCommerce Portal",
+      category: "eCommerce",
+      clientType: "Custom eCommerce Storefront",
       location: "Coimbatore",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1556742049-0a67e55722c0?q=80&w=800&auto=format&fit=crop",
       link: "https://akashpackaging.in/"
     },
     {
-      id: "p8",
-      title: "LIONYX – Global Marketing Consultancy",
-      category: "Brand Logos",
-      clientType: "Brand Identity & Design",
-      location: "Canada / India",
-      image: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=800&auto=format&fit=crop",
-      link: "https://lionyx.ca/"
-    },
-    {
-      id: "p9",
-      title: "Apex Fitness Brand Identity & Posters",
-      category: "Posters",
-      clientType: "Social Posters & Banners",
-      location: "Coimbatore",
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop",
-      link: "#"
-    },
-    {
-      id: "p10",
-      title: "Zenith Tech – Meta Ads ROI 4.8x Campaign",
-      category: "Meta Ads",
-      clientType: "Performance Marketing",
+      id: "p6",
+      title: "Smart Sensor Gateway & ESP32 AIoT Hub",
+      category: "IoT Services",
+      clientType: "Industrial IoT Prototyping",
       location: "Bangalore",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-      link: "#"
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
+      link: "#/iot"
+    },
+    {
+      id: "p7",
+      title: "Embedded Mesh Telemetry & Research Feasibility",
+      category: "Research Projects",
+      clientType: "Tech Research & Validation",
+      location: "Global",
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop",
+      link: "#contact"
+    },
+    {
+      id: "p8",
+      title: "Square Software Enterprise Web Portal",
+      category: "Web Development",
+      clientType: "Next.js Web Application",
+      location: "India",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
+      link: "https://squaresoftwaresolutions.com/"
     }
   ],
 
@@ -145,53 +127,79 @@ export const defaultContent = {
     {
       id: "srv-1",
       number: "01",
-      title: "Custom Website Development",
+      title: "Web Development",
       shortDesc: "Scalable, secure, and high-performance websites built to match your business goals and brand identity.",
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
       items: [
-        { title: "Custom Website Solutions", desc: "Tailor-made websites designed for growth and flexibility" },
-        { title: "Business & Corporate Websites", desc: "Professional websites that build trust and credibility" },
-        { title: "SEO-Friendly Architecture", desc: "Clean code and structure optimized for search engines" },
-        { title: "Fast & Secure Performance", desc: "Optimized speed, SSL security, and modern tech stack" }
+        { title: "Custom Web Solutions", desc: "Tailor-made apps designed for growth" },
+        { title: "Corporate Websites", desc: "Professional websites that build trust" },
+        { title: "Responsive UI/UX", desc: "Pixel-perfect mobile & desktop layouts" },
+        { title: "Fast & Secure", desc: "Optimized speed and enterprise security" }
       ]
     },
     {
       id: "srv-2",
       number: "02",
-      title: "Responsive UI/UX Website Design",
-      shortDesc: "Mobile-friendly, conversion-focused designs crafted by experienced website designers for seamless user experience.",
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
+      title: "Search Engine Optimization (SEO)",
+      shortDesc: "Rank #1 on Google and attract high-converting organic traffic with our proven, data-driven SEO strategies.",
+      image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop",
       items: [
-        { title: "Responsive Website Design", desc: "Pixel-perfect user experience across mobile, tablet & desktop" },
-        { title: "UI/UX Strategy", desc: "Designs focused on engagement and direct lead conversions" },
-        { title: "Modern Visual Design", desc: "Clean, professional, and brand-aligned layouts" },
-        { title: "User-Centered Approach", desc: "Engineered around visitor behavior and high intent" }
+        { title: "On-Page SEO", desc: "Technical optimization for every page" },
+        { title: "Keyword Strategy", desc: "Targeting high-intent search terms" },
+        { title: "Local SEO & GMB", desc: "Dominate local maps and search results" },
+        { title: "Authority Backlinks", desc: "Building domain trust and authority" }
       ]
     },
     {
       id: "srv-3",
       number: "03",
-      title: "E-Commerce Website Development",
-      shortDesc: "High-converting online stores with secure payment gateways and smooth shopping experiences.",
-      image: "https://images.unsplash.com/photo-1556742049-0a67e55722c0?q=80&w=800&auto=format&fit=crop",
+      title: "IoT Services",
+      shortDesc: "Empower your business with connected devices, smart automation, and real-time data insights using cutting-edge IoT solutions.",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
       items: [
-        { title: "Custom E-Commerce Stores", desc: "Tailored solutions for selling physical and digital products" },
-        { title: "Secure Payment Integration", desc: "Razorpay, Stripe, UPI, and major global payment gateways" },
-        { title: "Product & Order Management", desc: "Easy-to-manage client dashboards and inventory systems" },
-        { title: "Conversion Optimization", desc: "Engineered checkout flows to maximize sales and order value" }
+        { title: "Smart Home & City", desc: "Integrated automation systems" },
+        { title: "Industrial IoT", desc: "Predictive maintenance & asset tracking" },
+        { title: "Custom Prototyping", desc: "Hardware & firmware development" },
+        { title: "Cloud Dashboards", desc: "Real-time remote monitoring" }
       ]
     },
     {
       id: "srv-4",
       number: "04",
-      title: "Digital Marketing & Performance Ads",
-      shortDesc: "Performance-driven digital marketing services in Coimbatore focused on traffic, qualified leads, and measurable sales growth.",
-      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop",
+      title: "eCommerce Development",
+      shortDesc: "High-converting online stores with secure payment gateways, inventory management, and smooth shopping experiences.",
+      image: "https://images.unsplash.com/photo-1556742049-0a67e55722c0?q=80&w=800&auto=format&fit=crop",
       items: [
-        { title: "Search Engine Optimization (SEO)", desc: "Rank #1 on Google and attract high-converting organic traffic" },
-        { title: "Social Media Marketing (SMM)", desc: "Build brand awareness, viral reels, and audience engagement" },
-        { title: "Pay-Per-Click Advertising (PPC)", desc: "High-ROI Google Ads, Search, Display, and Meta campaigns" },
-        { title: "Content & Brand Marketing", desc: "Compelling copywriting and content strategies that sell" }
+        { title: "Custom Storefronts", desc: "Tailored shopping experiences" },
+        { title: "Payment Integration", desc: "Secure local & global gateways" },
+        { title: "Inventory Management", desc: "Real-time stock and order tracking" },
+        { title: "Conversion Optimization", desc: "Frictionless checkout flows" }
+      ]
+    },
+    {
+      id: "srv-5",
+      number: "05",
+      title: "Research Projects",
+      shortDesc: "In-depth technological and market research initiatives to pioneer new solutions and stay ahead of the innovation curve.",
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop",
+      items: [
+        { title: "Market Analysis", desc: "Deep dives into industry trends" },
+        { title: "Tech Feasibility", desc: "Validating new technical approaches" },
+        { title: "Data Insights", desc: "Actionable intelligence from raw data" },
+        { title: "Innovation Consulting", desc: "Strategic planning for future tech" }
+      ]
+    },
+    {
+      id: "srv-6",
+      number: "06",
+      title: "Services Related Enquiry",
+      shortDesc: "Looking for something specific? We offer tailored consultations and custom project scoping to meet your exact requirements.",
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop",
+      items: [
+        { title: "Custom Solutions", desc: "Tailored to your specific business needs" },
+        { title: "Project Scoping", desc: "Detailed requirements and roadmaps" },
+        { title: "Technical Consulting", desc: "Expert advice on architecture & stacks" },
+        { title: "Dedicated Support", desc: "Ongoing maintenance and SLAs" }
       ]
     }
   ],
@@ -282,6 +290,41 @@ export const defaultContent = {
     { id: "c6", name: "Money Onliners", logo: "", category: "Fintech & Education" },
     { id: "c7", name: "Square Software", logo: "", category: "Software Enterprise" },
     { id: "c8", name: "LIONYX Consultancy", logo: "", category: "Consulting" }
+  ],
+
+  team: [
+    {
+      id: "tm-1",
+      name: "Akash Raghavan",
+      role: "Lead Full Stack & Cloud Architect",
+      specialty: "Next.js, Node & Enterprise Architecture",
+      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop",
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      id: "tm-2",
+      name: "Siddharth Menon",
+      role: "IoT & Hardware Systems Lead",
+      specialty: "Sensors, Firmware, MQTT & Cloud Hubs",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+      color: "from-sky-500 to-cyan-600"
+    },
+    {
+      id: "tm-3",
+      name: "Kavya Nandakumar",
+      role: "Head of SEO & Performance Marketing",
+      specialty: "Technical SEO, High ROAS Ads & CRO",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
+      color: "from-indigo-500 to-purple-600"
+    },
+    {
+      id: "tm-4",
+      name: "Vikramaditya Rao",
+      role: "Research & Technical Consulting Lead",
+      specialty: "System Feasibility, AI & Modern Stacks",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+      color: "from-teal-500 to-emerald-600"
+    }
   ],
 
   faqs: [

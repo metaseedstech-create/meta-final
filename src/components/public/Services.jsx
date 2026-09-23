@@ -1,112 +1,205 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useContent } from '../../context/ContentContext';
-import { ArrowRight, Check, Sparkles } from '../Icons';
+import { ArrowRight, ChevronLeft, ChevronRight, Check } from '../Icons';
 
 export const Services = () => {
   const { content } = useContent();
-  const { services, settings } = content;
+  const { services = [] } = content;
+  const sliderRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-carousel timer effect
+  useEffect(() => {
+    if (isPaused || !services.length) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % services.length;
+        scrollToIndex(nextIndex);
+        return nextIndex;
+      });
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [isPaused, services.length]);
+
+  const scrollToIndex = (index) => {
+    if (sliderRef.current) {
+      const cardWidth = 340; // card width + gap
+      sliderRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    const nextIndex = activeIndex === 0 ? services.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+    scrollToIndex(nextIndex);
+  };
+
+  const handleNext = () => {
+    const nextIndex = (activeIndex + 1) % services.length;
+    setActiveIndex(nextIndex);
+    scrollToIndex(nextIndex);
+  };
+
+  const getService3DIcon = (title = '') => {
+    const t = title.toLowerCase();
+    if (t.includes('web')) return '/images/icon_web_3d.jpg';
+    if (t.includes('seo') || t.includes('optimization')) return '/images/icon_seo_3d.jpg';
+    if (t.includes('iot')) return '/images/icon_iot_3d.jpg';
+    if (t.includes('ecommerce')) return '/images/icon_ecommerce_3d.jpg';
+    if (t.includes('research')) return '/images/icon_research_3d.jpg';
+    return '/images/icon_enquiry_3d.jpg';
+  };
 
   return (
-    <section id="services" className="py-12 sm:py-16 md:py-24 bg-[#f0f7ff] relative overflow-hidden">
-      {/* Soft Blue Glows */}
-      <div className="hidden md:block absolute top-1/3 left-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="hidden md:block absolute bottom-10 right-0 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl pointer-events-none" />
+    <section id="services" className="relative py-24 sm:py-32 bg-[#0e2778] text-white overflow-hidden">
+      {/* Dynamic Curved Top Wave SVG */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+        <svg
+          className="relative block w-full h-12 sm:h-16 text-[#f8fafc]"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          fill="currentColor"
+        >
+          <path d="M0,0 L1200,0 L1200,60 C900,120 600,10 0,70 Z"></path>
+        </svg>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-20 reveal">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Core Expertise</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pt-8">
+        
+        {/* Title & Subtitle */}
+        <div className="text-center max-w-3xl mx-auto mb-14 reveal">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-xs font-bold uppercase tracking-widest mb-4">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+            <span>Interactive Showcase</span>
           </div>
-          <h2 className="text-lg sm:text-3xl md:text-4xl font-black text-slate-900 leading-snug px-2">
-            At {settings.agencyName || 'Meta Seeds'}, we help businesses build strong digital foundations through high-performance websites and ROI-focused marketing.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+            Our Services
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-blue-600 to-sky-500 mx-auto mt-5 rounded-full" />
+          <p className="mt-3 text-sm sm:text-base text-slate-200">
+            High-performance engineering across our 6 core technology domains.
+          </p>
         </div>
 
-        {/* Services Grid — single col on mobile, alternating on lg */}
-        <div className="space-y-8 sm:space-y-14">
-          {services.map((service, index) => {
-            const isEven = index % 2 === 1;
+        {/* Auto Carousel Container with Hover Pause & Navigation */}
+        <div
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Left Arrow Button */}
+          <button
+            onClick={handlePrev}
+            className="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-blue-900 border border-white/30 flex items-center justify-center transition-all shadow-xl backdrop-blur-md transform hover:scale-110 active:scale-95"
+            aria-label="Previous Service"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
-            return (
-              <div
-                key={service.id || index}
-                className={`rounded-2xl sm:rounded-3xl bg-white border border-blue-100 shadow-lg shadow-blue-500/5 hover:border-blue-300 transition-all group overflow-hidden ${isEven ? 'reveal reveal-left' : 'reveal reveal-right'}`}
-              >
-                {/* Mobile: stacked layout. Desktop: side-by-side grid */}
-                <div className={`flex flex-col lg:grid lg:grid-cols-12 lg:gap-0 items-stretch`}>
+          {/* Right Arrow Button */}
+          <button
+            onClick={handleNext}
+            className="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-blue-900 border border-white/30 flex items-center justify-center transition-all shadow-xl backdrop-blur-md transform hover:scale-110 active:scale-95"
+            aria-label="Next Service"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
 
-                  {/* Image block */}
-                  <div className={`lg:col-span-5 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <div className={`relative h-44 sm:h-64 lg:h-full min-h-[200px] sm:min-h-[260px] overflow-hidden`}>
+          {/* Services Cards Horizontal Auto-Slider */}
+          <div
+            ref={sliderRef}
+            className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none snap-x snap-mandatory scroll-smooth px-4"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {services.map((service, index) => {
+              const iconPath = getService3DIcon(service.title);
+              const isActive = index === activeIndex;
+
+              return (
+                <div
+                  key={service.id || index}
+                  className={`w-[280px] sm:w-[320px] md:w-[340px] shrink-0 snap-start rounded-3xl bg-white text-slate-900 p-6 sm:p-7 flex flex-col justify-between shadow-2xl transition-all duration-500 group ${
+                    isActive
+                      ? 'ring-4 ring-cyan-400/80 scale-[1.02] shadow-cyan-500/20'
+                      : 'hover:-translate-y-2 opacity-95 hover:opacity-100'
+                  }`}
+                >
+                  <div className="text-center">
+                    {/* 3D Isometric Icon Top Center */}
+                    <div className="w-20 h-20 mx-auto mb-4 relative flex items-center justify-center overflow-hidden rounded-2xl shadow-md">
                       <img
-                        src={service.image}
+                        src={iconPath}
                         alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute top-3 left-3 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-base sm:text-lg shadow-md">
-                        {service.number}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Text block */}
-                  <div className={`lg:col-span-7 p-6 sm:p-8 lg:p-10 ${isEven ? 'lg:order-1' : 'lg:order-2'} flex flex-col justify-center`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
-                        SERVICE {service.number}
-                      </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {/* Title */}
+                    <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-700 transition-colors mb-2">
                       {service.title}
                     </h3>
 
-                    <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                    {/* Description */}
+                    <p className="text-xs text-slate-600 leading-relaxed min-h-[48px]">
                       {service.shortDesc}
                     </p>
 
-                    {/* Sub-items */}
+                    {/* Checklist */}
                     {service.items && service.items.length > 0 && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 pt-5 border-t border-blue-100">
-                        {service.items.map((item, idx) => (
-                          <div
-                            key={idx}
-                            className="p-3 rounded-xl bg-blue-50/50 border border-blue-100 hover:border-blue-200 transition-all"
-                          >
-                            <div className="flex items-start gap-2.5">
-                              <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5">
-                                <Check className="w-3 h-3" />
-                              </div>
-                              <div>
-                                <h4 className="text-xs font-bold text-slate-900">{item.title}</h4>
-                                <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">{item.desc}</p>
-                              </div>
-                            </div>
+                      <div className="mt-4 space-y-1.5 pt-3 border-t border-slate-100 text-left">
+                        {service.items.slice(0, 3).map((item, idx) => (
+                          <div key={idx} className="flex items-start gap-2 text-[11px] text-slate-600">
+                            <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                            <span className="font-medium">{item.title}</span>
                           </div>
                         ))}
                       </div>
                     )}
+                  </div>
 
-                    {/* CTA */}
-                    <div className="mt-6">
-                      <a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 hover:text-blue-800 transition-colors group/btn"
-                      >
-                        <span>Discuss this with Meta Seeds</span>
-                        <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                      </a>
-                    </div>
+                  {/* Bottom Action Link */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 text-center">
+                    <a
+                      href={service.title.toLowerCase().includes('iot') ? '#/iot' : '#contact'}
+                      className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-blue-700 hover:text-red-600 transition-colors group-hover:translate-x-1 duration-300"
+                    >
+                      <span>Explore Service</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
+          {/* Animated Active Index Dots Bar */}
+          <div className="flex items-center justify-center gap-2.5 mt-8">
+            {services.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setActiveIndex(idx);
+                  scrollToIndex(idx);
+                }}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  idx === activeIndex
+                    ? 'w-8 bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)]'
+                    : 'w-2.5 bg-white/30 hover:bg-white/60'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
         </div>
+
       </div>
     </section>
   );
 };
+

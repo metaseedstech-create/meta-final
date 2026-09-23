@@ -3,15 +3,17 @@ import { Loader } from '../components/public/Loader';
 import { Cursor } from '../components/public/Cursor';
 import { Navbar } from '../components/public/Navbar';
 import { Hero } from '../components/public/Hero';
-import { Stats } from '../components/public/Stats';
-import { Services } from '../components/public/Services';
-import { Portfolio } from '../components/public/Portfolio';
 import { About } from '../components/public/About';
+import { Services } from '../components/public/Services';
+import { Team } from '../components/public/Team';
+import { TechPartnersCarousel } from '../components/public/TechPartnersCarousel';
+import { Stats } from '../components/public/Stats';
+import { Portfolio } from '../components/public/Portfolio';
 import { Testimonials } from '../components/public/Testimonials';
 import { Clients } from '../components/public/Clients';
 import { FAQ } from '../components/public/FAQ';
 import { Contact } from '../components/public/Contact';
-import { TechPartnersCarousel } from '../components/public/TechPartnersCarousel';
+import { CtaBanner } from '../components/public/CtaBanner';
 import { ConnectPopup } from '../components/public/ConnectPopup';
 import { Footer } from '../components/public/Footer';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -28,20 +30,47 @@ export const PublicSite = ({ onOpenAdmin }) => {
       <Cursor />
       <Navbar onOpenAdmin={onOpenAdmin} />
       <main>
+        {/* 1. Hero with 2-column 3D visual & 3 Overlapping Highlight Cards */}
         <Hero />
-        <Stats />
-        <Services />
-        <Portfolio />
+
+        {/* 2. About Us with 3D Holographic Workstation Illustration */}
         <About />
-        <Testimonials />
-        <Clients />
-        <FAQ />
-        <Contact />
-        {/* Technology & Hosting Partners Carousel */}
+
+        {/* 3. Our Core Services Dark Curved Carousel (6 Core Services) */}
+        <Services />
+
+        {/* 4. Meet Our Expert Team Works For Your Business (Blob Shape Profiles) */}
+        <Team />
+
+        {/* 5. Technology & Hosting Partners Carousel */}
         <TechPartnersCarousel />
+
+        {/* 6. Proven Performance Stats */}
+        <Stats />
+
+        {/* 7. Client Reviews & Trust */}
+        <Testimonials />
+
+        {/* 8. Portfolio & Work */}
+        <Portfolio />
+
+        {/* 9. Clients List */}
+        <Clients />
+
+        {/* 10. Frequently Asked Questions */}
+        <FAQ />
+
+        {/* 11. Contact Form & Map */}
+        <Contact />
+
+        {/* 12. Full-Width High Impact Conversion CTA Banner */}
+        <CtaBanner />
       </main>
+
+      {/* 13. Deep Wavy Footer */}
       <Footer onOpenAdmin={onOpenAdmin} />
-      {/* 20-second Auto-Disabling Scroll Popup */}
+
+      {/* 14. Interactive Connect / Enquiry Modal Popup */}
       <ConnectPopup />
     </div>
   );

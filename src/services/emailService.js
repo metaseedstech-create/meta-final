@@ -1,13 +1,10 @@
+import emailjs from '@emailjs/browser';
+
 /**
  * Meta Seeds Email Service
- * 
- * Supports sending emails directly to metaseedstech@gmail.com via:
- * 1. EmailJS (Client-side SMTP service - Recommended for React)
- * 2. Backend API Endpoint (Node.js / Express / Vercel Serverless Nodemailer SMTP)
- * 3. Fallback Mailto link
+ * Target Destination: metaseedstech@gmail.com
  */
 
-// EmailJS Configuration (Replace with your actual keys from https://www.emailjs.com)
 export const EMAILJS_CONFIG = {
   SERVICE_ID: 'YOUR_SERVICE_ID', // e.g., 'service_metaseeds'
   TEMPLATE_ID: 'YOUR_TEMPLATE_ID', // e.g., 'template_inquiry'
@@ -16,19 +13,19 @@ export const EMAILJS_CONFIG = {
 };
 
 /**
- * Send contact inquiry details
+ * Send contact inquiry details via SMTP / EmailJS / API / Mailto
  * @param {Object} data - { name, email, phone, services, message }
  */
 export const sendInquiryEmail = async (data) => {
   const targetEmail = EMAILJS_CONFIG.RECIPIENT_EMAIL;
 
-  // Option A: If EmailJS is configured
+  // Option A: If EmailJS credentials have been configured
   if (
     EMAILJS_CONFIG.SERVICE_ID !== 'YOUR_SERVICE_ID' &&
-    window.emailjs
+    EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'
   ) {
     try {
-      const response = await window.emailjs.send(
+      const response = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_ID,
         {
@@ -47,7 +44,7 @@ export const sendInquiryEmail = async (data) => {
     }
   }
 
-  // Option B: If backend API endpoint exists (/api/send-email)
+  // Option B: Serverless API endpoint (/api/send-email)
   try {
     const apiResponse = await fetch('/api/send-email', {
       method: 'POST',
@@ -59,10 +56,10 @@ export const sendInquiryEmail = async (data) => {
       return { success: true };
     }
   } catch (err) {
-    // API not running or network offline, proceed to fallback
+    // API serverless route offline or in local static dev
   }
 
-  // Option C: Fallback mailto client launch
+  // Option C: Fallback native email client launch
   const subject = encodeURIComponent(`New Meta Seeds Website Inquiry from ${data.name}`);
   const body = encodeURIComponent(
     `Client Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nServices Needed: ${

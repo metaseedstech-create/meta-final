@@ -38,6 +38,16 @@ export const ConnectPopup = () => {
     }
     setSubmitted(true);
     showToast('Consultation request received! Meta Seeds will connect shortly.', 'success');
+
+    // Send inquiry to metaseedstech@gmail.com
+    const targetEmail = content?.settings?.contactEmail || 'metaseedstech@gmail.com';
+    const subject = encodeURIComponent(`Quick Consultation Request from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Client Name: ${formData.name}\nContact Info: ${formData.contact}\nRequirement / Website: ${formData.goal || 'Not specified'}`
+    );
+
+    window.open(`mailto:${targetEmail}?subject=${subject}&body=${body}`, '_blank');
+
     setTimeout(() => {
       setIsVisible(false);
       // Reset form after closing

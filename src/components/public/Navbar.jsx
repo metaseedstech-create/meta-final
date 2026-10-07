@@ -36,7 +36,7 @@ export const Navbar = ({ onOpenAdmin }) => {
               </span>
               <span className="flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-emerald-600" />
-                <span>{settings.contactEmail || 'info@metaseeds.com'}</span>
+                <span>{settings.contactEmail || 'metaseedstech@gmail.com'}</span>
               </span>
             </div>
 

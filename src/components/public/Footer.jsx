@@ -81,7 +81,7 @@ export const Footer = ({ onOpenAdmin }) => {
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
                 <a href={`mailto:${settings.contactEmail}`} className="hover:text-white">
-                  {settings.contactEmail || 'info@metaseeds.com'}
+                  {settings.contactEmail || 'metaseedstech@gmail.com'}
                 </a>
               </li>
             </ul>

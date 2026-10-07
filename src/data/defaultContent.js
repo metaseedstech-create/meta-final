@@ -4,7 +4,7 @@ export const defaultContent = {
     tagline: "Leading Website Development & Digital Marketing Agency",
     logoText: "METASEEDS",
     logoSubtitle: "DIGITAL AGENCY",
-    contactEmail: "info@metaseeds.com",
+    contactEmail: "metaseedstech@gmail.com",
     contactPhone: "+91 85318 07262",
     address: "100% Online Digital Agency (Global Remote Services)",
     workingHours: "Monday – Saturday, 9:00 AM – 7:00 PM IST (Online Support 24/7)",

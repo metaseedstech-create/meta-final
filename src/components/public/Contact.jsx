@@ -42,6 +42,17 @@ export const Contact = () => {
     }
     setSubmitted(true);
     showToast('Inquiry sent! Meta Seeds team will contact you within 24 hours.', 'success');
+
+    // Send inquiry details to metaseedstech@gmail.com
+    const targetEmail = settings.contactEmail || 'metaseedstech@gmail.com';
+    const subject = encodeURIComponent(`New Meta Seeds Website Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Client Name: ${formData.name}\nEmail Address: ${formData.email}\nPhone Number: ${formData.phone || 'N/A'}\nServices Needed: ${
+        formData.services.join(', ') || 'General Consultation'
+      }\n\nProject Overview:\n${formData.message || 'No extra message provided.'}`
+    );
+
+    window.open(`mailto:${targetEmail}?subject=${subject}&body=${body}`, '_blank');
   };
 
   const whatsappUrl = `https://wa.me/${(settings.whatsappNumber || '+918531807262').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
@@ -98,10 +109,10 @@ export const Contact = () => {
                     Direct Email
                   </h4>
                   <a
-                    href={`mailto:${settings.contactEmail}`}
+                    href={`mailto:${settings.contactEmail || 'metaseedstech@gmail.com'}`}
                     className="text-sm font-bold text-blue-600 hover:underline transition-colors mt-0.5 block"
                   >
-                    {settings.contactEmail || 'info@metaseeds.com'}
+                    {settings.contactEmail || 'metaseedstech@gmail.com'}
                   </a>
                 </div>
               </div>

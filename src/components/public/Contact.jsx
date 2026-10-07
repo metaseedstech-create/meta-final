@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContent } from '../../context/ContentContext';
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle2, Sparkles } from '../Icons';
+import { Phone, Mail, MapPin, Globe, Clock, Send, MessageCircle, CheckCircle2, Sparkles } from '../Icons';
 
 export const Contact = () => {
   const { content, showToast } = useContent();
@@ -59,14 +59,14 @@ export const Contact = () => {
           <div className="lg:col-span-5 space-y-8">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-widest mb-4">
-                <Sparkles className="w-3.5 h-3.5" />
+                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
                 <span>Let's Connect</span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-slate-900 leading-tight">
                 Ready to Grow With Meta Seeds?
               </h2>
               <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-                Get in touch with our team in Coimbatore today for a free website audit, competition analysis, and customized growth roadmap.
+                Get in touch with our team today for a free website audit, competition analysis, and customized growth roadmap. We operate 100% online to deliver complete, end-to-end digital services to clients worldwide.
               </p>
             </div>
 
@@ -74,14 +74,17 @@ export const Contact = () => {
             <div className="space-y-4">
               <div className="p-5 rounded-2xl bg-white border border-blue-100 flex items-start gap-4 hover:border-blue-300 transition-colors shadow-sm">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5" />
+                  <Globe className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-xs uppercase tracking-wider text-slate-500 font-bold">
-                    Office Location
+                    Service Delivery & Location
                   </h4>
                   <p className="text-sm font-bold text-slate-900 mt-0.5">
-                    {settings.address || 'Near Hopes College, Coimbatore, Tamil Nadu'}
+                    {settings.address || '100% Online Digital Agency (Global Remote Services)'}
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Complete end-to-end service execution & client collaboration online.
                   </p>
                 </div>
               </div>

@@ -24,7 +24,7 @@ export const AdminContact = () => {
             <span>Customize Contact Details & WhatsApp</span>
           </h2>
           <p className="text-xs text-slate-400 mt-1">
-            Update your Coimbatore office address, contact numbers, email inbox, and WhatsApp chat links.
+            Update your online agency location, contact numbers, email inbox, and WhatsApp chat links.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export const AdminContact = () => {
         <div className="p-6 rounded-2xl bg-slate-900/40 border border-white/5 space-y-3">
           <div className="flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-wider">
             <MapPin className="w-4 h-4" />
-            <span>Physical Address</span>
+            <span>Office Location / Service Mode</span>
           </div>
           <textarea
             rows={3}

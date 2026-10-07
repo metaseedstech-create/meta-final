@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useContent } from '../../context/ContentContext';
-import { Menu, X, ArrowRight, Phone, Mail, MapPin, ChevronDown, Instagram, Linkedin, Twitter, Facebook } from '../Icons';
+import { Menu, X, ArrowRight, Phone, Mail, MapPin, Globe, ChevronDown, Instagram, Linkedin, Twitter, Facebook } from '../Icons';
 import { MetaSeedsMark } from './MetaSeedsMark';
 
 export const Navbar = ({ onOpenAdmin }) => {
@@ -22,52 +22,52 @@ export const Navbar = ({ onOpenAdmin }) => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        {/* Top Announcement & Contact Bar */}
-        <div className="bg-[#0a194f] text-white text-xs py-2 border-b border-white/10 hidden sm:block">
+        {/* Top Announcement & Contact Bar - Green Lite Classic */}
+        <div className="bg-[#ecfdf5] text-emerald-950 text-xs py-2 border-b border-emerald-200/80 hidden sm:block">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <div className="flex items-center gap-6 text-slate-200 text-[11px] font-medium">
+            <div className="flex items-center gap-6 text-emerald-900 text-[11px] font-semibold">
               <span className="flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                <Phone className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Call: {settings.contactPhone || '+91 85318 07262'}</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-blue-400" />
-                <span>Coimbatore, Tamil Nadu</span>
+                <Globe className="w-3.5 h-3.5 text-emerald-600" />
+                <span>{settings.address || '100% Online Digital Agency'}</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-blue-400" />
+                <Mail className="w-3.5 h-3.5 text-emerald-600" />
                 <span>{settings.contactEmail || 'info@metaseeds.com'}</span>
               </span>
             </div>
 
             {/* Social Icons */}
             <div className="flex items-center gap-3">
-              <a href={settings.socialLinks?.facebook || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-white/10 hover:bg-red-600 flex items-center justify-center text-white transition-colors" aria-label="Facebook">
+              <a href={settings.socialLinks?.facebook || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-emerald-100 hover:bg-emerald-600 flex items-center justify-center text-emerald-800 hover:text-white transition-colors" aria-label="Facebook">
                 <Facebook className="w-3 h-3" />
               </a>
-              <a href={settings.socialLinks?.instagram || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-white/10 hover:bg-red-600 flex items-center justify-center text-white transition-colors" aria-label="Instagram">
+              <a href={settings.socialLinks?.instagram || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-emerald-100 hover:bg-emerald-600 flex items-center justify-center text-emerald-800 hover:text-white transition-colors" aria-label="Instagram">
                 <Instagram className="w-3 h-3" />
               </a>
-              <a href={settings.socialLinks?.twitter || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-white/10 hover:bg-red-600 flex items-center justify-center text-white transition-colors" aria-label="Twitter">
+              <a href={settings.socialLinks?.twitter || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-emerald-100 hover:bg-emerald-600 flex items-center justify-center text-emerald-800 hover:text-white transition-colors" aria-label="Twitter">
                 <Twitter className="w-3 h-3" />
               </a>
-              <a href={settings.socialLinks?.linkedin || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-white/10 hover:bg-red-600 flex items-center justify-center text-white transition-colors" aria-label="LinkedIn">
+              <a href={settings.socialLinks?.linkedin || '#'} target="_blank" rel="noreferrer" className="w-6 h-6 rounded-full bg-emerald-100 hover:bg-emerald-600 flex items-center justify-center text-emerald-800 hover:text-white transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-3 h-3" />
               </a>
             </div>
           </div>
         </div>
 
-        {/* Main Navbar */}
+        {/* Main Navbar - Green Lite Classic */}
         <div
           className={`transition-all duration-300 ${
             scrolled
-              ? 'bg-white shadow-md border-b border-slate-100 py-2.5'
-              : 'bg-white/95 backdrop-blur-md border-b border-slate-100 py-3.5'
+              ? 'bg-white shadow-md border-b border-emerald-200/60 py-2.5'
+              : 'bg-[#f0fdf4]/95 backdrop-blur-md border-b border-emerald-200/60 py-3.5'
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            {/* Official Meta Seeds HD Logo - Sized so Name Below is Crisp & Visible */}
+            {/* Official Meta Seeds HD Logo */}
             <a href="#" className="flex items-center group py-0.5">
               <img
                 src="/images/metaseeds_logo.png"
@@ -78,10 +78,10 @@ export const Navbar = ({ onOpenAdmin }) => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
-              <a href="#" className="text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <a href="#" className="text-sm font-bold text-slate-800 hover:text-emerald-700 transition-colors">
                 Home
               </a>
-              <a href="#about" className="text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <a href="#about" className="text-sm font-bold text-slate-800 hover:text-emerald-700 transition-colors">
                 About Us
               </a>
 
@@ -93,26 +93,26 @@ export const Navbar = ({ onOpenAdmin }) => {
               >
                 <a
                   href="#services"
-                  className="text-sm font-bold text-slate-800 hover:text-red-600 flex items-center gap-1 transition-colors py-2"
+                  className="text-sm font-bold text-slate-800 hover:text-emerald-700 flex items-center gap-1 transition-colors py-2"
                 >
                   <span>Services</span>
                   <ChevronDown className="w-3.5 h-3.5 opacity-70" />
                 </a>
 
                 {servicesDropdown && (
-                  <div className="absolute top-full left-0 w-72 bg-white border border-slate-200 rounded-2xl shadow-2xl p-3 animate-fade-in-up">
+                  <div className="absolute top-full left-0 w-72 bg-white border border-emerald-100 rounded-2xl shadow-2xl p-3 animate-fade-in-up z-50">
                     {(services || []).map((srv) => (
                       <a
                         key={srv.id}
                         href={srv.title.toLowerCase().includes('iot') ? '#/iot' : '#services'}
                         onClick={() => setServicesDropdown(false)}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-red-50 transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-emerald-50 transition-colors group"
                       >
-                        <span className="text-xs font-mono font-bold text-red-600 mt-0.5">
+                        <span className="text-xs font-mono font-bold text-emerald-600 mt-0.5">
                           {srv.number}
                         </span>
                         <div>
-                          <div className="text-xs font-bold text-slate-900 group-hover:text-red-600 transition-colors">
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                             {srv.title}
                           </div>
                           <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
@@ -125,19 +125,19 @@ export const Navbar = ({ onOpenAdmin }) => {
                 )}
               </div>
 
-              <a href="#portfolio" className="text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <a href="#portfolio" className="text-sm font-bold text-slate-800 hover:text-emerald-700 transition-colors">
                 Portfolio
               </a>
-              <a href="#contact" className="text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <a href="#contact" className="text-sm font-bold text-slate-800 hover:text-emerald-700 transition-colors">
                 Contact Us
               </a>
             </nav>
 
-            {/* Template Red CTA Button */}
+            {/* Green Lite Classic CTA Button */}
             <div className="flex items-center gap-3">
               <a
                 href="#contact"
-                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-red-600/30 transition-all transform hover:scale-105"
+                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-emerald-600/30 transition-all transform hover:scale-105"
               >
                 <span>Get Started</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ export const Navbar = ({ onOpenAdmin }) => {
               {/* Grid Menu Icon Button */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="p-2.5 rounded-xl bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md"
+                className="p-2.5 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-md"
                 aria-label="Toggle Menu"
               >
                 <div className="grid grid-cols-2 gap-1 w-4 h-4">
@@ -179,19 +179,19 @@ export const Navbar = ({ onOpenAdmin }) => {
               </div>
 
               <div className="flex flex-col gap-3 py-6">
-                <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-red-600">Home</a>
-                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-red-600">About Us</a>
-                <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-red-600">Services</a>
-                <a href="#/iot" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-red-600">IoT Services</a>
-                <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-red-600">Portfolio</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-red-600">Contact Us</a>
+                <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-emerald-700">Home</a>
+                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-emerald-700">About Us</a>
+                <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-emerald-700">Services</a>
+                <a href="#/iot" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-emerald-700">IoT Services</a>
+                <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-emerald-700">Portfolio</a>
+                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-base font-bold text-slate-800 hover:text-emerald-700">Contact Us</a>
               </div>
             </div>
 
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 rounded-full bg-red-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-red-600/30"
+              className="w-full py-3.5 rounded-full bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30"
             >
               <span>Get Started</span>
               <ArrowRight className="w-4 h-4" />

@@ -579,6 +579,42 @@ export const Facebook = createIcon(
   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
 );
 
+export const Laptop = createIcon(
+  <>
+    <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55A1 1 0 0 1 20.34 20H3.66a1 1 0 0 1-.94-1.45L4 16" />
+  </>
+);
+
+export const Rocket = createIcon(
+  <>
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.71 1.26-1.5 1.76-2.34l-3.02-3.02c-.84.5-1.63 1.05-2.34 1.76Z" />
+    <path d="m12 15 3.5 3.5" />
+    <path d="M15 12 9 6c-.35-.35-.77-.66-1.22-.92A13.9 13.9 0 0 1 1.9 2.2a.9.9 0 0 1 1 1A13.9 13.9 0 0 1 5.8 7.12c.26.45.57.87.92 1.22l6 6c.35.35.77.66 1.22.92a13.9 13.9 0 0 0 3.9 2.92.9.9 0 0 0 1-1 13.9 13.9 0 0 0-2.92-3.9 5.8 5.8 0 0 0-.92-1.22Z" />
+  </>
+);
+
+export const Cpu = createIcon(
+  <>
+    <rect width="12" height="12" x="6" y="6" rx="2" />
+    <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
+  </>
+);
+
+export const Smartphone = createIcon(
+  <>
+    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+    <path d="M12 18h.01" />
+  </>
+);
+
+export const ShoppingBag = createIcon(
+  <>
+    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+    <line x1="3" x2="21" y1="6" y2="6" />
+    <path d="M16 10a4 4 0 0 1-8 0" />
+  </>
+);
+
 export default {
   Sun, Moon, Menu, X, Sparkles, ArrowRight, ArrowLeft, ArrowUp, ArrowUpRight, ShieldCheck, ShieldAlert,
   PhoneCall, Phone, Mail, MapPin, Clock, Send, CheckCircle2, Check, Zap, Activity, Play,
@@ -588,5 +624,5 @@ export default {
   Github, Instagram, TrendingUp, Heart,
   Edit, Trash2, Plus, Save, Upload, Download, RefreshCw, Settings, Sliders, Globe, Layout,
   Eye, LogOut, ExternalLink, Image, FileText, Folder, User, Users, Shield, Key, Copy, Filter,
-  AlertCircle, Info, Palette
+  AlertCircle, Info, Palette, Laptop, Rocket, Cpu, Smartphone, ShoppingBag
 };

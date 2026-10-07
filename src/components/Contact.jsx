@@ -94,10 +94,10 @@ export default function Contact({ preselectedService, onAuditSuccess }) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    San Francisco Flagship HQ
+                    100% Online Digital Agency
                   </h3>
                   <span className="text-xs text-slate-500 dark:text-slate-400">
-                    Silicon Valley Growth Engineering Hub
+                    Global Remote Services & End-to-End Digital Execution Hub
                   </span>
                 </div>
               </div>

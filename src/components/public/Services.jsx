@@ -57,7 +57,7 @@ export const Services = () => {
   };
 
   return (
-    <section id="services" className="relative py-24 sm:py-32 bg-[#0e2778] text-white overflow-hidden">
+    <section id="services" className="relative py-24 sm:py-32 bg-gradient-to-br from-[#064e3b] via-[#047857] to-[#022c22] text-white overflow-hidden">
       {/* Dynamic Curved Top Wave SVG */}
       <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
         <svg
@@ -74,14 +74,14 @@ export const Services = () => {
         
         {/* Title & Subtitle */}
         <div className="text-center max-w-3xl mx-auto mb-14 reveal">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-xs font-bold uppercase tracking-widest mb-4">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-emerald-300 text-xs font-bold uppercase tracking-widest mb-4">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             <span>Interactive Showcase</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
             Our Services
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-200">
+          <p className="mt-3 text-sm sm:text-base text-emerald-100">
             High-performance engineering across our 6 core technology domains.
           </p>
         </div>
@@ -95,7 +95,7 @@ export const Services = () => {
           {/* Left Arrow Button */}
           <button
             onClick={handlePrev}
-            className="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-blue-900 border border-white/30 flex items-center justify-center transition-all shadow-xl backdrop-blur-md transform hover:scale-110 active:scale-95"
+            className="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-emerald-950 border border-white/30 flex items-center justify-center transition-all shadow-xl backdrop-blur-md transform hover:scale-110 active:scale-95"
             aria-label="Previous Service"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -104,7 +104,7 @@ export const Services = () => {
           {/* Right Arrow Button */}
           <button
             onClick={handleNext}
-            className="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-blue-900 border border-white/30 flex items-center justify-center transition-all shadow-xl backdrop-blur-md transform hover:scale-110 active:scale-95"
+            className="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-emerald-950 border border-white/30 flex items-center justify-center transition-all shadow-xl backdrop-blur-md transform hover:scale-110 active:scale-95"
             aria-label="Next Service"
           >
             <ChevronRight className="w-6 h-6" />
@@ -113,7 +113,7 @@ export const Services = () => {
           {/* Services Cards Horizontal Auto-Slider */}
           <div
             ref={sliderRef}
-            className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none snap-x snap-mandatory scroll-smooth px-4"
+            className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none snap-x snap-mandatory scroll-smooth px-4 perspective-container"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {services.map((service, index) => {
@@ -123,15 +123,15 @@ export const Services = () => {
               return (
                 <div
                   key={service.id || index}
-                  className={`w-[280px] sm:w-[320px] md:w-[340px] shrink-0 snap-start rounded-3xl bg-white text-slate-900 p-6 sm:p-7 flex flex-col justify-between shadow-2xl transition-all duration-500 group ${
+                  className={`card-3d w-[82vw] max-w-[340px] sm:w-[320px] md:w-[340px] shrink-0 snap-start rounded-3xl bg-white text-slate-900 p-5 sm:p-7 flex flex-col justify-between shadow-2xl transition-all duration-500 group ${
                     isActive
-                      ? 'ring-4 ring-cyan-400/80 scale-[1.02] shadow-cyan-500/20'
-                      : 'hover:-translate-y-2 opacity-95 hover:opacity-100'
+                      ? 'ring-4 ring-emerald-400/80 scale-[1.02] sm:scale-[1.03] shadow-emerald-500/30'
+                      : 'opacity-95 hover:opacity-100'
                   }`}
                 >
                   <div className="text-center">
                     {/* 3D Isometric Icon Top Center */}
-                    <div className="w-20 h-20 mx-auto mb-4 relative flex items-center justify-center overflow-hidden rounded-2xl shadow-md">
+                    <div className="w-20 h-20 mx-auto mb-4 relative flex items-center justify-center overflow-hidden rounded-2xl shadow-lg icon-3d-badge">
                       <img
                         src={iconPath}
                         alt={service.title}
@@ -140,7 +140,7 @@ export const Services = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-700 transition-colors mb-2">
+                    <h3 className="text-lg font-black text-slate-900 group-hover:text-emerald-700 transition-colors mb-2">
                       {service.title}
                     </h3>
 
@@ -154,7 +154,7 @@ export const Services = () => {
                       <div className="mt-4 space-y-1.5 pt-3 border-t border-slate-100 text-left">
                         {service.items.slice(0, 3).map((item, idx) => (
                           <div key={idx} className="flex items-start gap-2 text-[11px] text-slate-600">
-                            <Check className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
+                            <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                             <span className="font-medium">{item.title}</span>
                           </div>
                         ))}
@@ -166,7 +166,7 @@ export const Services = () => {
                   <div className="mt-6 pt-4 border-t border-slate-100 text-center">
                     <a
                       href={service.title.toLowerCase().includes('iot') ? '#/iot' : '#contact'}
-                      className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-blue-700 hover:text-red-600 transition-colors group-hover:translate-x-1 duration-300"
+                      className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-700 hover:text-emerald-900 transition-colors group-hover:translate-x-1 duration-300"
                     >
                       <span>Explore Service</span>
                       <ArrowRight className="w-3.5 h-3.5" />

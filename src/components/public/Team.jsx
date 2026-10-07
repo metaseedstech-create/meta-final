@@ -26,15 +26,15 @@ export const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-20 sm:py-28 bg-[#f8fafc] relative overflow-hidden">
+    <section id="team" className="py-20 sm:py-28 bg-[#f8fafc] relative overflow-hidden text-slate-900">
       {/* Background circle watermark on left */}
-      <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-96 h-96 rounded-full bg-slate-200/50 pointer-events-none" />
+      <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-100/40 blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header (Template Style) */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 reveal">
-          <p className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-2">
+          <p className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">
             Our Specialists Worker
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
@@ -42,7 +42,7 @@ export const Team = () => {
           </h2>
         </div>
 
-        {/* 4 Team Member Cards with Blob Cutout Shape */}
+        {/* 4 Team Member Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map((member, index) => {
             const blob = blobAccents[index % blobAccents.length];
@@ -50,23 +50,23 @@ export const Team = () => {
             return (
               <div
                 key={member.id || index}
-                className="text-center group reveal"
+                className="text-center group reveal card-3d p-6 rounded-3xl bg-white border border-slate-200/80 hover:border-blue-400 transition-all duration-500 shadow-md"
               >
-                {/* Organic Colored Blob Image Frame (Template Style) */}
-                <div className="relative w-56 h-64 mx-auto mb-5 flex items-center justify-center">
-                  <div className={`absolute inset-0 ${blob.blobBg} ${blob.shapeStyle} opacity-90 group-hover:scale-105 transition-transform duration-500`} />
+                {/* Organic Colored Blob Image Frame */}
+                <div className="relative w-48 h-56 mx-auto mb-5 flex items-center justify-center icon-3d-badge">
+                  <div className={`absolute inset-0 ${blob.blobBg} ${blob.shapeStyle} opacity-80 group-hover:scale-105 transition-transform duration-500`} />
                   <img
                     src={member.image}
                     alt={member.name}
-                    className={`relative w-48 h-56 object-cover ${blob.shapeStyle} shadow-lg shadow-slate-900/10 group-hover:scale-105 transition-transform duration-500`}
+                    className={`relative w-44 h-52 object-cover ${blob.shapeStyle} shadow-lg group-hover:scale-105 transition-transform duration-500`}
                   />
                 </div>
 
                 {/* Member Name & Role */}
-                <h3 className="text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors">
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-blue-600 transition-colors">
                   {member.name}
                 </h3>
-                <p className="text-xs font-bold text-slate-500 mt-0.5">
+                <p className="text-xs font-bold text-slate-500 mt-1">
                   {member.role}
                 </p>
               </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { agencyConfig } from '../data/agencyConfig';
+import { sendInquiryEmail } from '../services/emailService';
 import { 
   Mail, 
   Phone, 
@@ -32,14 +33,21 @@ export default function Contact({ preselectedService, onAuditSuccess }) {
     }
   }, [preselectedService]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      if (onAuditSuccess) onAuditSuccess();
-    }, 1200);
+
+    await sendInquiryEmail({
+      name: formState.name,
+      email: formState.email,
+      phone: formState.phone,
+      services: [formState.service],
+      message: `Budget: ${formState.budget}\nMessage: ${formState.message}`,
+    });
+
+    setIsSubmitting(false);
+    setSubmitted(true);
+    if (onAuditSuccess) onAuditSuccess();
   };
 
   const servicesList = [

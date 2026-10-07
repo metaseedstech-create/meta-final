@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useContent } from '../../context/ContentContext';
 import { Phone, Mail, MapPin, Globe, Clock, Send, MessageCircle, CheckCircle2, Sparkles } from '../Icons';
+import { sendInquiryEmail } from '../../services/emailService';
 
 export const Contact = () => {
   const { content, showToast } = useContent();
@@ -34,7 +35,7 @@ export const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email) {
       showToast('Please provide your name and email.', 'error');
@@ -43,16 +44,14 @@ export const Contact = () => {
     setSubmitted(true);
     showToast('Inquiry sent! Meta Seeds team will contact you within 24 hours.', 'success');
 
-    // Send inquiry details to metaseedstech@gmail.com
-    const targetEmail = settings.contactEmail || 'metaseedstech@gmail.com';
-    const subject = encodeURIComponent(`New Meta Seeds Website Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Client Name: ${formData.name}\nEmail Address: ${formData.email}\nPhone Number: ${formData.phone || 'N/A'}\nServices Needed: ${
-        formData.services.join(', ') || 'General Consultation'
-      }\n\nProject Overview:\n${formData.message || 'No extra message provided.'}`
-    );
-
-    window.open(`mailto:${targetEmail}?subject=${subject}&body=${body}`, '_blank');
+    // Dispatch via email service (EmailJS / SMTP API / Mailto)
+    await sendInquiryEmail({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      services: formData.services,
+      message: formData.message,
+    });
   };
 
   const whatsappUrl = `https://wa.me/${(settings.whatsappNumber || '+918531807262').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useContent } from '../../context/ContentContext';
 import { X, Send, Sparkles, CheckCircle2, MessageCircle } from '../Icons';
+import { sendInquiryEmail } from '../../services/emailService';
 
 export const ConnectPopup = () => {
   const { content, showToast } = useContent();
@@ -30,7 +31,7 @@ export const ConnectPopup = () => {
     setIsVisible(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.contact) {
       showToast('Please enter your name and email/phone.', 'error');
@@ -39,18 +40,16 @@ export const ConnectPopup = () => {
     setSubmitted(true);
     showToast('Consultation request received! Meta Seeds will connect shortly.', 'success');
 
-    // Send inquiry to metaseedstech@gmail.com
-    const targetEmail = content?.settings?.contactEmail || 'metaseedstech@gmail.com';
-    const subject = encodeURIComponent(`Quick Consultation Request from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Client Name: ${formData.name}\nContact Info: ${formData.contact}\nRequirement / Website: ${formData.goal || 'Not specified'}`
-    );
-
-    window.open(`mailto:${targetEmail}?subject=${subject}&body=${body}`, '_blank');
+    await sendInquiryEmail({
+      name: formData.name,
+      email: formData.contact,
+      phone: formData.contact,
+      services: ['Quick Consultation Request'],
+      message: formData.goal,
+    });
 
     setTimeout(() => {
       setIsVisible(false);
-      // Reset form after closing
       setTimeout(() => setSubmitted(false), 500);
     }, 4000);
   };

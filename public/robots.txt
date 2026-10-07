@@ -1,4 +1,10 @@
+# Meta Seeds Robots.txt File for Search Engine Indexing
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /assets/
+Disallow: /admin
+Disallow: /#/admin
 
-Sitemap: https://yourdomain.com/sitemap.xml
+# Sitemap Location for Google Search Console
+Sitemap: https://metaseeds.com/sitemap.xml

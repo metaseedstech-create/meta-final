@@ -2,26 +2,28 @@ import emailjs from '@emailjs/browser';
 
 /**
  * Meta Seeds Email Service
- * Target Destination: metaseedstech@gmail.com
+ * Reads credentials dynamically from environment variables
  */
 
 export const EMAILJS_CONFIG = {
-  SERVICE_ID: 'YOUR_SERVICE_ID', // e.g., 'service_metaseeds'
-  TEMPLATE_ID: 'YOUR_TEMPLATE_ID', // e.g., 'template_inquiry'
-  PUBLIC_KEY: 'YOUR_PUBLIC_KEY', // e.g., 'user_xxxxxxxxx'
-  RECIPIENT_EMAIL: 'metaseedstech@gmail.com',
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID',
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY',
+  RECIPIENT_EMAIL: import.meta.env.VITE_CONTACT_EMAIL || 'metaseedstech@gmail.com',
 };
 
 /**
- * Send contact inquiry details via SMTP / EmailJS / API / Mailto
+ * Send contact inquiry details via SMTP / EmailJS / Serverless API / Mailto
  * @param {Object} data - { name, email, phone, services, message }
  */
 export const sendInquiryEmail = async (data) => {
   const targetEmail = EMAILJS_CONFIG.RECIPIENT_EMAIL;
 
-  // Option A: If EmailJS credentials have been configured
+  // Option A: If EmailJS environment credentials are provided
   if (
+    EMAILJS_CONFIG.SERVICE_ID &&
     EMAILJS_CONFIG.SERVICE_ID !== 'YOUR_SERVICE_ID' &&
+    EMAILJS_CONFIG.PUBLIC_KEY &&
     EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'
   ) {
     try {
@@ -56,10 +58,10 @@ export const sendInquiryEmail = async (data) => {
       return { success: true };
     }
   } catch (err) {
-    // API serverless route offline or in local static dev
+    // API serverless route offline or running static preview
   }
 
-  // Option C: Fallback native email client launch
+  // Option C: Fallback mailto client launch
   const subject = encodeURIComponent(`New Meta Seeds Website Inquiry from ${data.name}`);
   const body = encodeURIComponent(
     `Client Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nServices Needed: ${

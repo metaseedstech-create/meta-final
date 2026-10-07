@@ -2,7 +2,9 @@ import nodemailer from 'nodemailer';
 
 /**
  * Serverless / Express API handler for SMTP email delivery
- * Destination: metaseedstech@gmail.com
+ * Environment variables:
+ * - GMAIL_USER (default: metaseedstech@gmail.com)
+ * - GMAIL_APP_PASSWORD (16-character Google App Password)
  */
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -15,21 +17,27 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Name and email are required.' });
   }
 
+  const recipientEmail = process.env.GMAIL_USER || 'metaseedstech@gmail.com';
+  const gmailPass = process.env.GMAIL_APP_PASSWORD;
+
+  if (!gmailPass) {
+    console.warn('GMAIL_APP_PASSWORD not set in environment variables.');
+  }
+
   // Configure Gmail SMTP Transporter
-  // Set GMAIL_APP_PASSWORD in environment variables
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
-    secure: true, // TLS/SSL
+    secure: true,
     auth: {
-      user: 'metaseedstech@gmail.com',
-      pass: process.env.GMAIL_APP_PASSWORD || 'YOUR_GMAIL_16_DIGIT_APP_PASSWORD',
+      user: recipientEmail,
+      pass: gmailPass,
     },
   });
 
   const mailOptions = {
-    from: '"Meta Seeds Web Inquiry" <metaseedstech@gmail.com>',
-    to: 'metaseedstech@gmail.com',
+    from: `"Meta Seeds Web Inquiry" <${recipientEmail}>`,
+    to: recipientEmail,
     replyTo: email,
     subject: `New Meta Seeds Inquiry from ${name}`,
     text: `
@@ -42,8 +50,8 @@ Project Overview / Message:
 ${message || 'No additional message provided.'}
     `,
     html: `
-      <div style="font-family: Arial, sans-serif; padding: 20px; color: #1e293b; max-width: 600px; border: 1px solid #e2e8f0; rounded: 8px;">
-        <h2 style="color: #16a34a;">New Meta Seeds Website Inquiry</h2>
+      <div style="font-family: Arial, sans-serif; padding: 20px; color: #1e293b; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 8px;">
+        <h2 style="color: #059669;">New Meta Seeds Website Inquiry</h2>
         <hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 15px 0;" />
         <p><strong>Client Name:</strong> ${name}</p>
         <p><strong>Client Email:</strong> <a href="mailto:${email}">${email}</a></p>
@@ -54,7 +62,7 @@ ${message || 'No additional message provided.'}
           <p style="white-space: pre-wrap; margin-top: 5px;">${message || 'No extra message provided.'}</p>
         </div>
         <hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 20px 0;" />
-        <p style="font-size: 12px; color: #64748b;">This email was automatically sent via SMTP from the Meta Seeds website contact form to metaseedstech@gmail.com.</p>
+        <p style="font-size: 12px; color: #64748b;">Automated SMTP email sent from Meta Seeds website to ${recipientEmail}.</p>
       </div>
     `,
   };
